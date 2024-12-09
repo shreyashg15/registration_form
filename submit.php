@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Sanitize input data
     $name = isset($_POST['name']) ? htmlspecialchars(trim($_POST['name'])) : '';
@@ -23,11 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } else {
     echo "Invalid request.";
 }
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Your existing PHP code
-}
+
 
 ?>
