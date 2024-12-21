@@ -1,10 +1,4 @@
 $(document).ready(function () {
-    // Initialize Select2 for searchable dropdown
-    $("#country").select2({
-        placeholder: "Select a country",
-        allowClear: true
-    });
-
     $("#registrationForm").on("submit", function (event) {
         event.preventDefault();
 
@@ -12,26 +6,31 @@ $(document).ready(function () {
         const lastname = $("#lastname").val(); // Get last name
         const email = $("#email").val(); // Get email
         const phone = $("#phone").val(); // Get phone
-        const gender = $("#gender").val(); // Get gender
-        const country = $("#country").val(); // Get country
+        const dob = $("#dob").val(); // Get date of birth
+        const gender = $("input[name='gender']:checked").val(); // Get selected gender
         const address = $("#address").val(); // Get address
+
+        // Format the Date of Birth (DD/MM/YYYY)
+        const dobArray = dob.split("-");  // Split the date (YYYY-MM-DD) into an array [YYYY, MM, DD]
+        const formattedDob = `${dobArray[2]}/${dobArray[1]}/${dobArray[0]}`; // Re-arrange to DD/MM/YYYY
 
         const name = `${firstname} ${lastname}`; // Concatenate first and last name
 
         const displayData = `
-            <strong>Name:</strong> ${name}<br>
-            <strong>Email:</strong> ${email}<br>
-            <strong>Phone:</strong> ${phone}<br>
-            <strong>Gender:</strong> ${gender}<br>
-            <strong>Country:</strong> ${country}<br>
-            <strong>Address:</strong> ${address}
+            <div><strong>Name:</strong> ${name}</div>
+            <div><strong>Email:</strong> ${email}</div>
+            <div><strong>Phone:</strong> ${phone}</div>
+            <div><strong>Date of Birth:</strong> ${formattedDob}</div>
+            <div><strong>Gender:</strong> ${gender}</div>
+            <div><strong>Address:</strong> ${address}</div>
         `;
 
         $("#displayData").html(displayData); // Display data
 
+        // Show success message with animation
         $("#successMessage")
             .hide() // Hide initially
-            .css({ backgroundColor: "#c8e6c9", borderColor: "#81c784" }) // Apply animation-friendly style
+            .css({ backgroundColor: "#e8f5e9", borderColor: "#81c784" }) // Apply animation-friendly style
             .slideDown(500) // Slide down animation
             .fadeIn(500); // Fade-in animation
     });
