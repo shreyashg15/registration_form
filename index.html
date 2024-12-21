@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <label for="firstname">First name:</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" required="">
+            
+            <label for="lastname">Last name:</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" required="">
+            
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required="">
+            
+            <label for="phone">Phone:</label>
+            <input type="text" class="form-control" id="phone" name="phone" required="">
+            
+            <label for="gender">Gender:</label>
+            <select id="gender" class="form-control" name="gender" required="">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            
+            <label for="country">Country:</label>
+            <select id="country" class="form-control" name="country" required="">
+                <option value="">Select Country</option>
+                <option value="United States">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Australia">Australia</option>
+                <option value="India">India</option>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Japan">Japan</option>
+                <option value="China">China</option>
+                <option value="Brazil">Brazil</option>
+            </select>
+            
+            <label for="address">Address:</label>
+            <textarea id="address" class="form-control" name="address" required=""></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="successMessage" class="success-box">
+            <h3>Form submitted successfully!</h3>
+            <p id="displayData"></p>
+        </div>
+    </div>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
